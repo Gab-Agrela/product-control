@@ -62,6 +62,12 @@ export const productsApi = createApi({
         },
       }),
     }),
+    deleteProductQuery: builder.mutation<any, { id: string }>({
+      query: ({ id }) => ({
+        url: `/delete/${id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
@@ -69,4 +75,5 @@ export const {
   useFetchProductsQuery,
   useFetchProductsByNameQuery,
   useCreateProductQueryMutation,
+  useDeleteProductQueryMutation,
 } = productsApi;
