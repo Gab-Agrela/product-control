@@ -9,6 +9,11 @@ export const productsApi = createApi({
   reducerPath: "products",
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
+    fetchProducts: builder.query({
+      query: () => ({
+        url: "/read",
+      }),
+    }),
     fetchProductsByName: builder.query({
       query: ({ name }) => ({
         url: "/read",
@@ -20,4 +25,5 @@ export const productsApi = createApi({
   }),
 });
 
-export const { useFetchProductsByNameQuery } = productsApi;
+export const { useFetchProductsQuery, useFetchProductsByNameQuery } =
+  productsApi;
