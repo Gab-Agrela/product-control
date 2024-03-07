@@ -27,7 +27,7 @@ export const accountsApi = createApi({
         },
       }),
     }),
-    loginUserQuery: builder.query<LoginUserResponse, LoginUserArgs>({
+    loginUserQuery: builder.mutation<LoginUserResponse, LoginUserArgs>({
       query: ({ username, password }: LoginUserArgs) => ({
         url: "/login",
         method: "POST",
@@ -40,5 +40,5 @@ export const accountsApi = createApi({
   }),
 });
 
-export const { useRegisterAccountQueryMutation, useLoginUserQueryQuery } =
+export const { useRegisterAccountQueryMutation, useLoginUserQueryMutation } =
   accountsApi;
