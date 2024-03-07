@@ -1,7 +1,6 @@
 "use client";
 
-import { Button, Popover } from "antd";
-import { CiCirclePlus, CiTrash } from "react-icons/ci";
+import { Popover } from "antd";
 import styled from "styled-components";
 import CreateProductModal from "./CreateProduct/Modal";
 
@@ -12,9 +11,6 @@ export default function ProductNavBar() {
       <div style={{ marginRight: "50px" }}>
         <Popover content={"Add new product"}>
           <CreateProductModal />
-        </Popover>
-        <Popover content={"Delete product"}>
-          <CiTrash size={32} />
         </Popover>
       </div>
     </NavBarContainer>

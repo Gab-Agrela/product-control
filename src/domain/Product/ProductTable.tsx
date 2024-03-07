@@ -1,10 +1,15 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Table, TableProps } from "antd";
+import { Popover, Table, TableProps, message } from "antd";
 
-import { useFetchProductsQuery } from "@/modules/rtk/productQuery";
+import {
+  useDeleteProductQueryMutation,
+  useFetchProductsQuery,
+} from "@/modules/rtk/productQuery";
 import OptionsTable from "./OptionsTable";
+import { CiTrash } from "react-icons/ci";
+import styled from "styled-components";
 
 interface DataType {
   key: number;
@@ -23,6 +28,8 @@ const ProductTable: React.FC = () => {
     isFetching,
     isLoading,
   } = useFetchProductsQuery({});
+
+  const [trigger, { data, isError, error }] = useDeleteProductQueryMutation();
 
   const [formattedProductData, setFormattedProductData] =
     useState<Array<DataType>>();
@@ -51,6 +58,26 @@ const ProductTable: React.FC = () => {
     setFilteredInfo(filters);
   };
 
+  const [messageApi, contextHolder] = message.useMessage();
+
+  useEffect(() => {
+    if (isError && error) {
+      messageApi.open({
+        type: "error",
+        content: (error as any)?.data?.message || "Error when deleting product",
+        duration: 3,
+      });
+    }
+
+    if (data && !isError) {
+      messageApi.open({
+        type: "success",
+        content: (data as any)?.message,
+        duration: 3,
+      });
+    }
+  }, [isError, data, error, messageApi]);
+
   const columns = [
     {
       title: "Name",
@@ -65,7 +92,6 @@ const ProductTable: React.FC = () => {
         record.name.includes(value),
       ellipsis: true,
     },
-
     {
       title: "Brand",
       dataIndex: "brand",
@@ -93,21 +119,37 @@ const ProductTable: React.FC = () => {
       ellipsis: true,
     },
     Table.EXPAND_COLUMN,
+    {
+      title: "Action",
+      dataIndex: "",
+      key: "x",
+      render: ({ key }: { key: number }) => (
+        <Popover content={"Delete product"}>
+          <CiTrash
+            style={{ cursor: "pointer" }}
+            size={26}
+            onClick={() => trigger({ id: key.toString() })}
+          />
+        </Popover>
+      ),
+    },
   ];
 
   return (
-    <>
+    <div style={{ marginLeft: "10%" }}>
+      {contextHolder}
       <Table
         columns={columns}
         dataSource={!isFetching ? formattedProductData : []}
         onChange={handleChange}
+        pagination={false}
         expandable={{
           expandedRowRender: ({ description }) => (
             <OptionsTable description={description} />
           ),
         }}
       />
-    </>
+    </div>
   );
 };
 
