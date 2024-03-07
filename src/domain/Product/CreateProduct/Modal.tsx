@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import { CiCirclePlus } from "react-icons/ci";
+import CreateProductForm from "./Form";
 
 const CreateProductModal: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,14 +24,12 @@ const CreateProductModal: React.FC = () => {
     <>
       <CiCirclePlus size={32} onClick={showModal} />
       <Modal
-        title="Basic Modal"
+        title="Create Product"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <CreateProductForm handleCancel={handleCancel} />
       </Modal>
     </>
   );

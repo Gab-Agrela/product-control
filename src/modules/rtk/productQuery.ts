@@ -24,6 +24,13 @@ interface ProductsResp {
   message: string;
   data: Array<Product>;
 }
+interface CreateProductArgs {
+  name: string;
+  brand: string;
+  model: string;
+  price: number;
+  color: string;
+}
 
 export const productsApi = createApi({
   reducerPath: "products",
@@ -42,8 +49,24 @@ export const productsApi = createApi({
         },
       }),
     }),
+    createProductQuery: builder.mutation<any, CreateProductArgs>({
+      query: ({ name, brand, model, price, color }: CreateProductArgs) => ({
+        url: "/create",
+        method: "POST",
+        body: {
+          name,
+          brand,
+          model,
+          price,
+          color,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useFetchProductsQuery, useFetchProductsByNameQuery } =
-  productsApi;
+export const {
+  useFetchProductsQuery,
+  useFetchProductsByNameQuery,
+  useCreateProductQueryMutation,
+} = productsApi;

@@ -1,6 +1,6 @@
 "use client";
 
-import RegisterForm from "@/components/RegisterForm";
+import RegisterForm from "@/domain/Register/RegisterForm";
 import React from "react";
 import styled from "styled-components";
 

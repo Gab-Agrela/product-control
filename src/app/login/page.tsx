@@ -3,7 +3,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import LoginForm from "@/components/LoginForm";
+import LoginForm from "@/domain/Login/LoginForm";
 
 const Login: React.FC = () => {
   return (

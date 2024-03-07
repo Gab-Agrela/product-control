@@ -3,7 +3,7 @@
 import { Button, Popover } from "antd";
 import { CiCirclePlus, CiTrash } from "react-icons/ci";
 import styled from "styled-components";
-import CreateProductModal from "./CreateProductModal";
+import CreateProductModal from "./CreateProduct/Modal";
 
 export default function ProductNavBar() {
   return (

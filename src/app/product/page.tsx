@@ -1,5 +1,5 @@
-import ProductNavBar from "@/components/ProductNavBar";
-import ProductTable from "@/components/ProductTable";
+import ProductNavBar from "@/domain/Product/ProductNavBar";
+import ProductTable from "@/domain/Product/ProductTable";
 
 export default function Product() {
   return (
