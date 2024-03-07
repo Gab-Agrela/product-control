@@ -1,31 +1,23 @@
-"use client";
-
 import React from "react";
-import styled from "styled-components";
 
 import LoginForm from "@/domain/Login/LoginForm";
 
 const Login: React.FC = () => {
   return (
-    <LoginContainer>
-      <Title>Login</Title>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        height: "95dvh",
+      }}
+    >
+      <p style={{ fontSize: "28px", paddingBottom: "20px" }}>Login</p>
       <LoginForm />
-    </LoginContainer>
+    </div>
   );
 };
-
-const LoginContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 95dvh;
-`;
-
-const Title = styled.p`
-  font-size: 28px;
-  padding-bottom: 20px;
-`;
 
 export default Login;
