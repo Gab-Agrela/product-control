@@ -1,7 +1,7 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import fetchRtkBaseQuery from "./fetchRtkBaseQuery";
 
-const baseUrl = "https://crud-sequelize-auth.vercel.app/account";
+const baseUrl = `${process.env.API_URL}/product`;
 
 type TOptions = {
   price: number;
