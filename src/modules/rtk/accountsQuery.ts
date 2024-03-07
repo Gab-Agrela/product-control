@@ -16,7 +16,7 @@ export const accountsApi = createApi({
   reducerPath: "accounts",
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
-    registerAccountQuery: builder.query<RegisterResponse, RegisterArgs>({
+    registerAccountQuery: builder.mutation<RegisterResponse, RegisterArgs>({
       query: ({ username, password, email }: RegisterArgs) => ({
         url: "/register",
         method: "POST",
@@ -40,5 +40,5 @@ export const accountsApi = createApi({
   }),
 });
 
-export const { useRegisterAccountQueryQuery, useLoginUserQueryQuery } =
+export const { useRegisterAccountQueryMutation, useLoginUserQueryQuery } =
   accountsApi;
