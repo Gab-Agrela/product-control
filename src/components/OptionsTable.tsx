@@ -37,18 +37,19 @@ const Table = styled.table`
 const THead = styled.thead`
   th {
     width: 80px;
-    border-bottom: 2px solid dimgray;
-    font-size: 18px;
-    padding: 3px 10px;
+    font-weight: 500;
+    border-bottom: 1px solid dimgray;
+    font-size: 16px;
+    padding-bottom: 3px;
   }
 `;
 const TBody = styled.tbody`
   td {
-    font-size: 18px;
+    font-size: 16px;
     width: 80px;
     text-align: center;
-    font-weight: 500;
-    padding: 3px 10px;
+    font-weight: 400;
+    padding-bottom: 3px;
     text-transform: capitalize;
     border-bottom: 1px solid dimgray;
   }
