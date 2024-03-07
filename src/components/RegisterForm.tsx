@@ -147,17 +147,27 @@ const RegisterForm: React.FC = () => {
 
         <Form.Item shouldUpdate {...tailFormItemLayout}>
           {() => (
-            <Button
-              type="primary"
-              htmlType="submit"
-              disabled={
-                !form.isFieldsTouched(true) ||
-                !!form.getFieldsError().filter(({ errors }) => errors.length)
-                  .length
-              }
-            >
-              Register
-            </Button>
+            <ButtonContainer>
+              <Button
+                type="primary"
+                htmlType="submit"
+                disabled={
+                  !form.isFieldsTouched(true) ||
+                  !!form.getFieldsError().filter(({ errors }) => errors.length)
+                    .length
+                }
+              >
+                Register
+              </Button>
+              <Button
+                type="link"
+                block
+                href="/login"
+                style={{ width: "fit-content" }}
+              >
+                Go to Login
+              </Button>
+            </ButtonContainer>
           )}
         </Form.Item>
       </Form>
@@ -171,6 +181,11 @@ const Form = styled(AntdForm)`
   }
   max-width: 650px;
   width: 500px;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export default RegisterForm;
