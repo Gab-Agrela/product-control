@@ -8,9 +8,7 @@ import {
   RegisterResponse,
 } from "../types";
 
-const localUrl = "http://localhost:3001/account";
-
-const baseUrl = localUrl;
+const baseUrl = "https://crud-sequelize-auth.vercel.app/account";
 
 export const accountsApi = createApi({
   reducerPath: "accounts",
