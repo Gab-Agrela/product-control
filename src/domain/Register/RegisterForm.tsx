@@ -162,7 +162,7 @@ const RegisterForm: React.FC = () => {
               <Button
                 type="link"
                 block
-                href="/login"
+                href="/"
                 style={{ width: "fit-content" }}
               >
                 Go to Login
