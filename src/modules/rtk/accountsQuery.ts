@@ -8,7 +8,7 @@ import {
   RegisterResponse,
 } from "../types";
 
-const baseUrl = process.env.API_URL;
+const baseUrl = `${process.env.API_URL}/account`;
 
 export const accountsApi = createApi({
   reducerPath: "accounts",
