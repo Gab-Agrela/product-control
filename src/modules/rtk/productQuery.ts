@@ -1,7 +1,7 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import fetchRtkBaseQuery from "./fetchRtkBaseQuery";
 
-const baseUrl = `${process.env.API_URL}/product`;
+const baseUrl = `https://product-control-backend-euls.vercel.app/product`;
 
 type TOptions = {
   price: number;

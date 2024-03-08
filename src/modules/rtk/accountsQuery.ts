@@ -8,7 +8,7 @@ import {
   RegisterResponse,
 } from "../types";
 
-const baseUrl = `${process.env.API_URL}/account`;
+const baseUrl = `https://product-control-backend-euls.vercel.app/account`;
 
 export const accountsApi = createApi({
   reducerPath: "accounts",
